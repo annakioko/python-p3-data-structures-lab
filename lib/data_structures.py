@@ -17,22 +17,40 @@ spicy_foods = [
 ]
 
 def get_names(spicy_foods):
-    pass
+    return [dish['name'] for dish in spicy_foods]
 
 def get_spiciest_foods(spicy_foods):
-    pass
+    return[spicy for spicy in spicy_foods if spicy.get('heat_level',0) >5]
 
 def print_spicy_foods(spicy_foods):
-    pass
+     for foods in spicy_foods:
+        heat_level = '🌶' * foods.get('heat_level', 0) 
+        print(f"{foods['name']} ({foods['cuisine']}) | Heat Level: {heat_level}")
+   
 
 def get_spicy_food_by_cuisine(spicy_foods, cuisine):
-    pass
+    for foods in spicy_foods:
+       if foods.get('cuisine') == cuisine:
+        return foods
+       
+      
 
 def print_spiciest_foods(spicy_foods):
-    pass
+     for spicy in spicy_foods:
+        heat_level = '🌶' * spicy.get('heat_level', 0)  
+        if spicy.get('heat_level', 0) > 5:
+            print(f"{spicy['name']} ({spicy['cuisine']}) | Heat Level: {heat_level}")
+
 
 def get_average_heat_level(spicy_foods):
-    pass
+    total_heat_level = sum(food.get('heat_level', 0) for food in spicy_foods)
+    i_spicy_foods = len(spicy_foods)
+    if i_spicy_foods == 0:
+        return 0
+    return total_heat_level // i_spicy_foods
 
 def create_spicy_food(spicy_foods, spicy_food):
-    pass
+    spicy_foods.append(spicy_food)
+    return spicy_foods
+
+#come back and check why my emoji code was bring an error
